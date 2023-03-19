@@ -4,7 +4,7 @@ body { background-color: #f7f7f7; font-family: 'Segoe UI', Tahoma, Geneva, Verda
 /* Style the header */ 
 
 header { background-color: #443; color: #fff; display: flex; 
-align-items: right;width: 150%;  padding: 10px;flex-direction: row;
+align-items: right;width: 140%;  padding: 10px;flex-direction: row;
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a shadow effect to the border */ } 
 
 h1 {
@@ -43,6 +43,6 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a shadow effect to the border */
 
 /* Style the footer */ 
 
-footer { background-color: #333; color: #fff; text-align: center; padding: 10px; width: 150%; } </style></head> <body> <header> <img src="https://st4.depositphotos.com/4177785/20332/v/1600/depositphotos_203321008-stock-illustration-money-saving-linear-icon-thin.jpg" alt="Logo">
+footer { background-color: #333; color: #fff; text-align: center; padding: 10px; width: 140%; } </style></head> <body> <header> <img src="https://st4.depositphotos.com/4177785/20332/v/1600/depositphotos_203321008-stock-illustration-money-saving-linear-icon-thin.jpg" alt="Logo">
 <h1>INSTALOOT</h1>
 </header> <table id="raw-table" class="display"></table> <footer> &copy; 2023 INSTALOOT. All rights reserved. </footer> <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.slim.min.js"></script> <script src="https://unpkg.com/sheetrock@1.2.0/dist/sheetrock.min.js"></script> <script src="https://unpkg.com/datatables@1.10.18/media/js/jquery.dataTables.min.js"></script> <script> var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1VYInE43sCLPWCq6QB0iZNAKjDw4QEmXiNEKVzQvQgXo/edit?usp=drivesdk#gid=0'; $('#raw-table').sheetrock({ url: mySpreadsheet, query: "select B,C,D,E order by D desc", }).on('sheetrock:loaded', function() { $(this).DataTable(); }); $(document).ready(function() { var searchHash = location.hash.substr(1), searchString = searchHash.substr(searchHash.indexOf('search=')) .split('&')[0] .split('=')[1]; $('#example').dataTable({ "oSearch": { "sSearch": searchString } }); }); </script></body></html>
