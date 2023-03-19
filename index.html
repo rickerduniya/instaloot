@@ -1,0 +1,109 @@
+:<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/datatables@1.10.18/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+  <style>
+    /* Set the body font and background color */
+    body {
+      background-color: #f7f7f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Style the header */
+    header {
+      background-color: #443;
+      color: #fff;
+      display: flex;
+      align-items: left;
+width: 150%;
+      justify-content: space-between;
+      padding: 10px;
+flex-direction: row;
+    }
+
+    /* Style the logo */
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    /* Style the table */
+    #raw-table {
+      margin: 5px;
+      border-collapse: collapse;
+      width: 95%;
+border: 3px solid #000;
+    }
+
+    #raw-table th,
+    #raw-table td {
+      padding: 6px;
+      border: 2px solid #bbb;
+      text-align: left;
+    }
+
+    #raw-table th {
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+    }
+
+   
+
+    /* Style the footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+       width: 150%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://github.com/rickerduniya/instaloot/blob/main/697bc656b91a4d51a266031461ded6ec(1)_copy_200x60.png" alt="Logo">
+    <h1>INSTALOOT</h1>
+  </header>
+
+  
+
+  <table id="raw-table" class="display"></table>
+
+  <footer>
+    &copy; 2023 INSTALOOT. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://unpkg.com/sheetrock@1.2.0/dist/sheetrock.min.js"></script>
+  <script src="https://unpkg.com/datatables@1.10.18/media/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1VYInE43sCLPWCq6QB0iZNAKjDw4QEmXiNEKVzQvQgXo/edit?usp=drivesdk#gid=0';
+
+    $('#raw-table').sheetrock({
+      url: mySpreadsheet,
+      query: "select B,C,D,E order by D desc",
+    }).on('sheetrock:loaded', function() {
+      $(this).DataTable();
+    });
+
+    $(document).ready(function() {
+      var searchHash = location.hash.substr(1),
+        searchString = searchHash.substr(searchHash.indexOf('search='))
+        .split('&')[0]
+        .split('=')[1];
+
+      $('#example').dataTable({
+        "oSearch": {
+          "sSearch": searchString
+        }
+      });
+    });
+  </script>
+</body>
+</html>
